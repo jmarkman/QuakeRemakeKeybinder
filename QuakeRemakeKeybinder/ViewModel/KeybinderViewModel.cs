@@ -1,4 +1,6 @@
 ﻿using QuakeRemakeKeybinder.Commands;
+using QuakeRemakeKeybinder.Models;
+using QuakeRemakeKeybinder.Services;
 using System;
 using System.IO;
 
@@ -22,6 +24,7 @@ namespace QuakeRemakeKeybinder.ViewModel
         public string MoveLeftKeybind { get; set; }
         public string MoveRightKeybind { get; set; }
         public string WalkRunToggleKeybind { get; set; }
+        public string JumpKeybind { get; set; }
         public string FireWeaponKeybind { get; set; }
         public DelegateCommand GenerateConfigCommand { get; set; }
 
@@ -32,13 +35,41 @@ namespace QuakeRemakeKeybinder.ViewModel
 
         public void GenerateConfig()
         {
+            var keybinds = new UserSpecifiedKeybinds
+            {
+                Weapons = new WeaponKeybinds
+                {
+                    Axe = AxeKeybind,
+                    Shotgun = ShotgunKeybind,
+                    SuperShotgun = SuperShotgunKeybind,
+                    Nailgun = NailgunKeybind,
+                    SuperNailgun = SuperNailgunKeybind,
+                    GrenadeLauncher = GrenadeLauncherKeybind,
+                    RocketLauncher = RocketLauncherKeybind,
+                    LightningGun = LightningGunKeybind
+                },
+                Interaction = new InteractionKeybinds
+                {
+                    MoveForward = MoveForwardKeybind,
+                    MoveBackward = MoveBackwardKeybind,
+                    MoveLeft = MoveLeftKeybind,
+                    MoveRight = MoveRightKeybind,
+                    WalkRunToggle = WalkRunToggleKeybind,
+                    Jump = JumpKeybind,
+                    Fire = FireWeaponKeybind
+                }
+            };
+
+            var configWriter = new ConfigWriter(keybinds);
+
             if (ConfigPathExists)
             {
-                // Generate config
+                configWriter.Write();
             }
             else
             {
                 Directory.CreateDirectory(ConfigFolderPath);
+                configWriter.Write();
             }
         }
     }
