@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuakeRemakeKeybinder.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,13 @@ namespace QuakeRemakeKeybinder
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly KeybinderViewModel viewModel;
+
         public MainWindow()
         {
             InitializeComponent();
+            viewModel = new KeybinderViewModel();
+            DataContext = viewModel;
         }
     }
 }

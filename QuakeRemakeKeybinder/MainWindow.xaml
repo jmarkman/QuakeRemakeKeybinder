@@ -59,6 +59,11 @@
             <TextBox/>
         </StackPanel>
 
-        <Button Grid.Row="2" Grid.ColumnSpan="2" Content="Save binds" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Grid.Row="2" 
+                Grid.ColumnSpan="2" 
+                Content="Save binds" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center"
+                Command="{Binding GenerateConfigCommand}"/>
     </Grid>
 </Window>
