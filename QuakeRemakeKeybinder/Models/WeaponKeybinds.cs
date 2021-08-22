@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace QuakeRemakeKeybinder.Models
@@ -13,6 +14,20 @@ namespace QuakeRemakeKeybinder.Models
         public string GrenadeLauncher { get; set; }
         public string RocketLauncher { get; set; }
         public string LightningGun { get; set; }
+        public IEnumerable<Tuple<string, string>> WeaponBindPair
+        {
+            get
+            {
+                yield return new("impulse 1", Axe);
+                yield return new("impulse 2", Shotgun);
+                yield return new("impulse 3", SuperShotgun);
+                yield return new("impulse 4", Nailgun);
+                yield return new("impulse 5", SuperNailgun);
+                yield return new("impulse 6", GrenadeLauncher);
+                yield return new("impulse 7", RocketLauncher);
+                yield return new("impulse 8", LightningGun);
+            }
+        }
 
         private IEnumerable<string> Keybinds
         {

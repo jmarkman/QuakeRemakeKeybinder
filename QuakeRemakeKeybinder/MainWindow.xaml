@@ -5,10 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuakeRemakeKeybinder"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Quake Weapon Binder" Height="300" Width="200" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height=".2*"/>
         </Grid.RowDefinitions>
@@ -17,53 +16,42 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="Weapon Binds"/>
-        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Center">
-            <TextBlock Text="Axe"/>
-            <TextBlock Text="Shotgun"/>
-            <TextBlock Text="Super Shotgun"/>
-            <TextBlock Text="Nailgun"/>
-            <TextBlock Text="Super Nailgun"/>
-            <TextBlock Text="Grenade Launcher"/>
-            <TextBlock Text="Rocket Launcher"/>
-            <TextBlock Text="Lightning Gun"/>
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Center" Margin="10 10 -40 0">
+            <TextBlock Text="Axe" Padding="0 3 0 5"/>
+            <TextBlock Text="Shotgun" Padding="0 3 0 5"/>
+            <TextBlock Text="Super Shotgun" Padding="0 3 0 5"/>
+            <TextBlock Text="Nailgun" Padding="0 3 0 5"/>
+            <TextBlock Text="Super Nailgun" Padding="0 3 0 5"/>
+            <TextBlock Text="Grenade Launcher" Padding="0 3 0 5"/>
+            <TextBlock Text="Rocket Launcher" Padding="0 3 0 5"/>
+            <TextBlock Text="Lightning Gun" Padding="0 3 0 3"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
-            <TextBox/>
-            <TextBox/>
-            <TextBox/>
-            <TextBox/>
-            <TextBox/>
-            <TextBox/>
-            <TextBox/>
-            <TextBox/>
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" Margin= "35 10 10 0" Width="30" HorizontalAlignment="Left">
+            <TextBox Margin="0 3 0 3"/>
+            <TextBox Margin="0 3 0 3"/>
+            <TextBox Margin="0 3 0 3"/>
+            <TextBox Margin="0 3 0 3"/>
+            <TextBox Margin="0 3 0 3"/>
+            <TextBox Margin="0 3 0 3"/>
+            <TextBox Margin="0 3 0 3"/>
+            <TextBox Margin="0 3 0 3"/>
         </StackPanel>
 
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="Interaction"/>
-        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Center">
-            <TextBlock Text="Move Forward"/>
-            <TextBlock Text="Move Backward"/>
-            <TextBlock Text="Move Left"/>
-            <TextBlock Text="Walk/Run Toggle"/>
-            <TextBlock Text="Jump"/>
-            <TextBlock Text="Fire"/>
-        </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
-            <TextBox/>
-            <TextBox/>
-            <TextBox/>
-            <TextBox/>
-            <TextBox/>
-            <TextBox/>
-        </StackPanel>
-
-        <Button Grid.Row="2" 
-                Grid.ColumnSpan="2" 
+        <Button Grid.Row="1" 
+                Grid.Column ="0"
                 Content="Save binds" 
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Center"
+                Margin="10 0 0 20"
                 Command="{Binding GenerateConfigCommand}"/>
+
+        <Button Grid.Row="1" 
+                Grid.Column ="1"
+                Content="Clear binds"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Margin="0 0 10 20"/>
     </Grid>
 </Window>

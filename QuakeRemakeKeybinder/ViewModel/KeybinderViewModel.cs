@@ -19,13 +19,6 @@ namespace QuakeRemakeKeybinder.ViewModel
         public string GrenadeLauncherKeybind { get; set; }
         public string RocketLauncherKeybind { get; set; }
         public string LightningGunKeybind { get; set; }
-        public string MoveForwardKeybind { get; set; }
-        public string MoveBackwardKeybind { get; set; }
-        public string MoveLeftKeybind { get; set; }
-        public string MoveRightKeybind { get; set; }
-        public string WalkRunToggleKeybind { get; set; }
-        public string JumpKeybind { get; set; }
-        public string FireWeaponKeybind { get; set; }
         public DelegateCommand GenerateConfigCommand { get; set; }
 
         public KeybinderViewModel()
@@ -35,35 +28,23 @@ namespace QuakeRemakeKeybinder.ViewModel
 
         public void GenerateConfig()
         {
-            var keybinds = new UserSpecifiedKeybinds
+            var keybinds = new WeaponKeybinds
             {
-                Weapons = new WeaponKeybinds
-                {
-                    Axe = AxeKeybind,
-                    Shotgun = ShotgunKeybind,
-                    SuperShotgun = SuperShotgunKeybind,
-                    Nailgun = NailgunKeybind,
-                    SuperNailgun = SuperNailgunKeybind,
-                    GrenadeLauncher = GrenadeLauncherKeybind,
-                    RocketLauncher = RocketLauncherKeybind,
-                    LightningGun = LightningGunKeybind
-                },
-                Interaction = new InteractionKeybinds
-                {
-                    MoveForward = MoveForwardKeybind,
-                    MoveBackward = MoveBackwardKeybind,
-                    MoveLeft = MoveLeftKeybind,
-                    MoveRight = MoveRightKeybind,
-                    WalkRunToggle = WalkRunToggleKeybind,
-                    Jump = JumpKeybind,
-                    Fire = FireWeaponKeybind
-                }
+                Axe = AxeKeybind,
+                Shotgun = ShotgunKeybind,
+                SuperShotgun = SuperShotgunKeybind,
+                Nailgun = NailgunKeybind,
+                SuperNailgun = SuperNailgunKeybind,
+                GrenadeLauncher = GrenadeLauncherKeybind,
+                RocketLauncher = RocketLauncherKeybind,
+                LightningGun = LightningGunKeybind
             };
 
             var configWriter = new ConfigWriter(keybinds);
 
             if (ConfigPathExists)
             {
+                configWriter.ConfigFilePath = ConfigFolderPath;
                 configWriter.Write();
             }
             else
