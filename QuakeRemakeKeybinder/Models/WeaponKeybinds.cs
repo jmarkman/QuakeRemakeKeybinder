@@ -29,21 +29,6 @@ namespace QuakeRemakeKeybinder.Models
             }
         }
 
-        private IEnumerable<string> Keybinds
-        {
-            get
-            {
-                yield return Axe;
-                yield return Shotgun;
-                yield return SuperShotgun;
-                yield return Nailgun;
-                yield return SuperNailgun;
-                yield return GrenadeLauncher;
-                yield return RocketLauncher;
-                yield return LightningGun;
-            }
-        }
-
         public WeaponKeybinds()
         {
 
@@ -51,7 +36,7 @@ namespace QuakeRemakeKeybinder.Models
 
         public bool HaveAnyModifications()
         {
-            return Keybinds.Any(bind => !string.IsNullOrWhiteSpace(bind));
+            return WeaponBindPair.Any(bind => !string.IsNullOrWhiteSpace(bind.Item2));
         }
     }
 }

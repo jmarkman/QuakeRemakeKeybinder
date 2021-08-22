@@ -30,14 +30,14 @@
         </StackPanel>
 
         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" Margin= "35 10 10 0" Width="30" HorizontalAlignment="Left">
-            <TextBox Margin="0 3 0 3" Text="{Binding AxeKeybind}"/>
-            <TextBox Margin="0 3 0 3" Text="{Binding ShotgunKeybind}"/>
-            <TextBox Margin="0 3 0 3" Text="{Binding SuperShotgunKeybind}"/>
-            <TextBox Margin="0 3 0 3" Text="{Binding NailgunKeybind}"/>
-            <TextBox Margin="0 3 0 3" Text="{Binding SuperNailgunKeybind}"/>
-            <TextBox Margin="0 3 0 3" Text="{Binding GrenadeLauncherKeybind}"/>
-            <TextBox Margin="0 3 0 3" Text="{Binding RocketLauncherKeybind}"/>
-            <TextBox Margin="0 3 0 3" Text="{Binding LightningGunKeybind}"/>
+            <TextBox Margin="0 3 0 3" Text="{Binding AxeKeybind}" MaxLength="1"/>
+            <TextBox Margin="0 3 0 3" Text="{Binding ShotgunKeybind}" MaxLength="1"/>
+            <TextBox Margin="0 3 0 3" Text="{Binding SuperShotgunKeybind}" MaxLength="1"/>
+            <TextBox Margin="0 3 0 3" Text="{Binding NailgunKeybind}" MaxLength="1"/>
+            <TextBox Margin="0 3 0 3" Text="{Binding SuperNailgunKeybind}" MaxLength="1"/>
+            <TextBox Margin="0 3 0 3" Text="{Binding GrenadeLauncherKeybind}" MaxLength="1"/>
+            <TextBox Margin="0 3 0 3" Text="{Binding RocketLauncherKeybind}" MaxLength="1"/>
+            <TextBox Margin="0 3 0 3" Text="{Binding LightningGunKeybind}" MaxLength="1"/>
         </StackPanel>
 
 
