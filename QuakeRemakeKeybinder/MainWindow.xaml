@@ -3,7 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:QuakeRemakeKeybinder"
+        xmlns:local="clr-namespace:QuakeRemakeKeybinder" 
+        xmlns:viewmodel="clr-namespace:QuakeRemakeKeybinder.ViewModel" 
+        d:DataContext="{d:DesignInstance Type=viewmodel:KeybinderViewModel}"
         mc:Ignorable="d"
         Title="Quake Weapon Binder" Height="300" Width="200" ResizeMode="NoResize">
     <Grid>
@@ -28,14 +30,14 @@
         </StackPanel>
 
         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" Margin= "35 10 10 0" Width="30" HorizontalAlignment="Left">
-            <TextBox Margin="0 3 0 3"/>
-            <TextBox Margin="0 3 0 3"/>
-            <TextBox Margin="0 3 0 3"/>
-            <TextBox Margin="0 3 0 3"/>
-            <TextBox Margin="0 3 0 3"/>
-            <TextBox Margin="0 3 0 3"/>
-            <TextBox Margin="0 3 0 3"/>
-            <TextBox Margin="0 3 0 3"/>
+            <TextBox Margin="0 3 0 3" Text="{Binding AxeKeybind}"/>
+            <TextBox Margin="0 3 0 3" Text="{Binding ShotgunKeybind}"/>
+            <TextBox Margin="0 3 0 3" Text="{Binding SuperShotgunKeybind}"/>
+            <TextBox Margin="0 3 0 3" Text="{Binding NailgunKeybind}"/>
+            <TextBox Margin="0 3 0 3" Text="{Binding SuperNailgunKeybind}"/>
+            <TextBox Margin="0 3 0 3" Text="{Binding GrenadeLauncherKeybind}"/>
+            <TextBox Margin="0 3 0 3" Text="{Binding RocketLauncherKeybind}"/>
+            <TextBox Margin="0 3 0 3" Text="{Binding LightningGunKeybind}"/>
         </StackPanel>
 
 
@@ -52,6 +54,7 @@
                 Content="Clear binds"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Margin="0 0 10 20"/>
+                Margin="0 0 10 20"
+                Command="{Binding ClearInputsFromUICommand}"/>
     </Grid>
 </Window>

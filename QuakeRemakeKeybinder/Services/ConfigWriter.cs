@@ -24,17 +24,18 @@ namespace QuakeRemakeKeybinder.Services
                 File.Create(FullConfigFilePath).Dispose();
             }
 
-            using StreamWriter textWriter = new(FullConfigFilePath);
+            using StreamWriter textWriter = new(FullConfigFilePath, append: false);
 
             if (keybinds.HaveAnyModifications())
             {
                 foreach (Tuple<string, string> bind in keybinds.WeaponBindPair)
                 {
-                    textWriter.WriteLine($"bind {bind.Item2} \"{bind.Item1}\"");
+                    if (!string.IsNullOrWhiteSpace(bind.Item2))
+                    {
+                        textWriter.WriteLine($"bind {bind.Item2} \"{bind.Item1}\"");
+                    }
                 }
             }
         }
-
-        
     }
 }
